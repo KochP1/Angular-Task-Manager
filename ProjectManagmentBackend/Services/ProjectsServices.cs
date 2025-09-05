@@ -44,7 +44,7 @@ namespace ProjectManagmentBackend.Services
 
         public async Task<ProjectDto> GetProjectById(int id)
         {
-            var projects = await context.Projects.FirstOrDefaultAsync(x => x.Id == id);
+            var projects = await context.Projects.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
             var projectsDto = mapper.Map<ProjectDto>(projects);
             return projectsDto;
         }

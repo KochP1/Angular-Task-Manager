@@ -53,10 +53,6 @@
     border-left-color: white;
 }
 
-.menu-item.active {
-    border-left-color: white;
-}
-
 .menu-item i {
     margin-right: 15px;
     font-size: 1.1rem;

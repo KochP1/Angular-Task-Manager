@@ -64,4 +64,8 @@ export class TaskDetailsComponent implements OnInit {
     this.router.navigate([`update_subTask/${id}`]);
   }
 
+  subTask(id:number) {
+    this.router.navigate([`create_Subtasks/${id}`]);
+  }
+
 }

@@ -4,6 +4,8 @@
     <p>Status: {{task.status}}</p>
     <p>Vencimiento: {{task.dueDate}}</p>
 
+    <button class="btn-crear" (click)="subTask(task.id)">Crear sub-tarea</button>
+
     <div class="cards__container projectTask__container ">
         <div *ngFor="let item of task.subTasks" class="card subtask__card">
             <h2>{{item.description}}</h2>

@@ -24,7 +24,7 @@ const routes: Routes = [
     {path: "detail_tasks/:id", component: TaskDetailsComponent},
     {path: "update_task/:id", component: ActualizarTaskComponent},
     {path: "update_subTask/:id", component: ActualizarSubTasksComponent},
-    {path: "create_Subtasks", component: SubTaskFormComponent},
+    {path: "create_Subtasks/:id", component: SubTaskFormComponent},
     {path: "stats", component: StatsComponent},
   ]
 

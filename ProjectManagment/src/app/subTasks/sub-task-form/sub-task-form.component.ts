@@ -15,16 +15,16 @@ export class SubTaskFormComponent implements OnInit {
   errorMessage: string;
   form: FormGroup;
   tasks: Task[] = [];
+  id: number;
   constructor(private taskService: TaskService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private subTaskService: SubTaskService) { 
     this.form = this.fb.group({
           description: ['', [Validators.required, Validators.maxLength(80)]],
           isCompleted: [true, [Validators.required]],
-          idTask: ['', [Validators.required]]
       })
   }
 
   ngOnInit(): void {
-    this.loadTasks();
+    this.id = this.route.snapshot.params["id"];
   }
 
   crear() {
@@ -43,7 +43,7 @@ export class SubTaskFormComponent implements OnInit {
       const subTask: SubTask = {
         description: formValues.description,
         isCompleted: isCompleted,
-        idTask: formValues.idTask
+        idTask: this.id
       }
 
       this.subTaskService.crearSubTask(subTask).subscribe({
@@ -60,24 +60,6 @@ export class SubTaskFormComponent implements OnInit {
         }
       })
     }
-  }
-
-  loadTasks() {
-    this.isLoading = true;
-    this.errorMessage = "";
-
-    this.taskService.getTasks().subscribe({
-      next: (tasks) => {
-        this.tasks = tasks;
-        this.isLoading = false;
-        console.log(this.tasks);
-      },
-      error: (error) => {
-        this.errorMessage = "Error al obtener proyectos: ";
-        this.isLoading = false;
-        console.error(this.errorMessage + error)
-      }
-    })
   }
 
 }

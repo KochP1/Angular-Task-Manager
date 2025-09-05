@@ -29,18 +29,6 @@
             </div>
         </div>
 
-        <div class="form-controls">
-            <label >Tarea</label>
-            <select formControlName="idTask">
-                <option *ngFor="let item of tasks" value="{{item.id}}">{{item.title}}</option>
-            </select>
-            <div *ngIf="form.get('idTask').errors && form.get('idTask').touched" class="error__container">
-                    <p *ngIf="form.get('idTask').hasError('required')" class="error__message">
-                        Es un campo requerido
-                    </p>
-            </div>
-        </div>
-
         <div>
             <button type="submit" class="btn-crear">Crear</button>
         </div>

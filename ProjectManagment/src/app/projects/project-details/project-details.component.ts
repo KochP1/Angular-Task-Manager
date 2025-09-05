@@ -39,6 +39,10 @@ export class ProjectDetailsComponent implements OnInit {
     });
   }
 
+  editTask(id: number) {
+    this.router.navigate([`update_task/${id}`])
+  }
+
   detailTask(id: number) {
     this.router.navigate([`detail_tasks/${id}`]);
   }

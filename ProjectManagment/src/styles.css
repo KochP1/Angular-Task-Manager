@@ -33,6 +33,15 @@ body {
     gap: 40px;
 }
 
+/* ERROR MESSAGE*/
+.error__container {
+    height: max-content;
+}
+.error__message {
+    color: var(--danger-color);
+    margin: 0;
+}
+
 /* BUTTONS */
 
 .btn-crear {

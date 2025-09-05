@@ -4,11 +4,31 @@
         <div class="form-controls">
             <label for="">Nombre</label>
             <input type="text" formControlName="name">
+
+            <div *ngIf="projectForm.get('name').errors && projectForm.get('name').touched">
+                <p *ngIf="projectForm.get('name').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="projectForm.get('name').hasError('maxlength')" class="error__message">
+                    50 caracteres maximo
+                </p>
+            </div>
         </div>
 
         <div class="form-controls">
             <label for="">Descripcion</label>
             <textarea formControlName="description"></textarea>
+
+            <div *ngIf="projectForm.get('description').errors && projectForm.get('description').touched" class="error__container">
+                <p *ngIf="projectForm.get('description').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="projectForm.get('description').hasError('maxlength')" class="error__message">
+                    80 caracteres maximo
+                </p>
+            </div>
         </div>
 
         <div>

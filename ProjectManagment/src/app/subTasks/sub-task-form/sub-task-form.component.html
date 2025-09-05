@@ -4,6 +4,15 @@
         <div class="form-controls">
             <label for="">Descripcion</label>
             <textarea formControlName="description"></textarea>
+            <div *ngIf="form.get('description').errors && form.get('description').touched" class="error__container">
+                <p *ngIf="form.get('description').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="form.get('description').hasError('maxlength')" class="error__message">
+                    80 caracteres maximo
+                </p>
+            </div>
         </div>
 
         <div class="form-controls">
@@ -12,6 +21,12 @@
                 <option [value]="false">Pendiente</option>
                 <option [value]="true">Finalizada</option>
             </select>
+
+            <div *ngIf="form.get('isCompleted').errors && form.get('isCompleted').touched" class="error__container">
+                    <p *ngIf="form.get('isCompleted').hasError('required')" class="error__message">
+                        Es un campo requerido
+                    </p>
+            </div>
         </div>
 
         <div class="form-controls">
@@ -19,6 +34,11 @@
             <select formControlName="idTask">
                 <option *ngFor="let item of tasks" value="{{item.id}}">{{item.title}}</option>
             </select>
+            <div *ngIf="form.get('idTask').errors && form.get('idTask').touched" class="error__container">
+                    <p *ngIf="form.get('idTask').hasError('required')" class="error__message">
+                        Es un campo requerido
+                    </p>
+            </div>
         </div>
 
         <div>

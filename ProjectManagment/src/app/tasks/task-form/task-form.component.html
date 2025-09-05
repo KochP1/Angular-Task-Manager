@@ -11,6 +11,16 @@
           id="title"
           formControlName="title"
           placeholder="Ingrese el título de la tarea">
+
+          <div *ngIf="taskForm.get('title').errors && taskForm.get('title').touched" class="error__container">
+                <p *ngIf="taskForm.get('title').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="taskForm.get('title').hasError('maxlength')" class="error__message">
+                    50 caracteres maximo
+                </p>
+          </div>
       </div>
 
       <div class="form-group">
@@ -20,6 +30,16 @@
           formControlName="description"
           rows="4"
           placeholder="Describa la tarea"></textarea>
+
+          <div *ngIf="taskForm.get('description').errors && taskForm.get('description').touched" class="error__container">
+                <p *ngIf="taskForm.get('description').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="taskForm.get('description').hasError('maxlength')" class="error__message">
+                    80 caracteres maximo
+                </p>
+          </div>
       </div>
 
       <div class="form-row">
@@ -33,6 +53,12 @@
             <option value="En curso">En curso</option>
             <option value="Finalizada">Finalizada</option>
           </select>
+
+          <div *ngIf="taskForm.get('status').errors && taskForm.get('status').touched" class="error__container">
+                <p *ngIf="taskForm.get('status').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+          </div>
         </div>
 
         <div class="form-group">
@@ -41,6 +67,12 @@
             type="date"
             id="dueDate"
             formControlName="dueDate">
+
+            <div *ngIf="taskForm.get('dueDate').errors && taskForm.get('dueDate').touched" class="error__container">
+                <p *ngIf="taskForm.get('dueDate').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+          </div>
         </div>
       </div>
 

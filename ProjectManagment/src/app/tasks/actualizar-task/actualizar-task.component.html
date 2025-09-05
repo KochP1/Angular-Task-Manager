@@ -4,11 +4,30 @@
         <div class="form-controls">
             <label for="">Titulo</label>
             <input type="text" formControlName="title">
+            <div *ngIf="form.get('title').errors && form.get('title').touched" class="error__container">
+                <p *ngIf="form.get('title').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="form.get('title').hasError('maxlength')" class="error__message">
+                    50 caracteres maximo
+                </p>
+            </div>
         </div>
 
         <div class="form-controls">
             <label for="">Descripcion</label>
             <textarea formControlName="description"></textarea>
+
+            <div *ngIf="form.get('description').errors && form.get('description').touched" class="error__container">
+                <p *ngIf="form.get('description').hasError('required')" class="error__message">
+                    Es un campo requerido
+                </p>
+
+                <p *ngIf="form.get('description').hasError('maxlength')" class="error__message">
+                    80 caracteres maximo
+                </p>
+            </div>
         </div>
 
         <div class="form-controls">
@@ -18,12 +37,23 @@
                 <option value="Pendiente">Pendiente</option>
                 <option value="En curso">En curso</option>
                 <option value="Finalizada">Finalizada</option>
+
+                <div *ngIf="form.get('status').errors && form.get('status').touched" class="error__container">
+                    <p *ngIf="form.get('status').hasError('required')" class="error__message">
+                        Es un campo requerido
+                    </p>
+                </div>
             </select>
         </div>
 
         <div class="form-controls">
             <label for="">Fecha de vencimiento</label>
             <input type="date" formControlName="dueDate">
+            <div *ngIf="form.get('dueDate').errors && form.get('dueDate').touched" class="error__container">
+                    <p *ngIf="form.get('dueDate').hasError('required')" class="error__message">
+                        Es un campo requerido
+                    </p>
+            </div>
         </div>
 
         <div class="form-controls">

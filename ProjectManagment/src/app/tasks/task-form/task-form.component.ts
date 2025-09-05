@@ -27,8 +27,8 @@ export class TaskFormComponent implements OnInit {
     private router: Router
   ) {
     this.taskForm = this.fb.group({
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.maxLength(500)]],
+      title: ['', [Validators.required, Validators.maxLength(50)]],
+      description: ['', [Validators.required, Validators.maxLength(80)]],
       status: ['Pendiente', [Validators.required]],
       dueDate: ['', [Validators.required]],
       idProject: [''],

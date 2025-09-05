@@ -7,7 +7,6 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './tasks/task-details/task-details.component';
 import { ActualizarTaskComponent } from './tasks/actualizar-task/actualizar-task.component';
-import { ActualizarSubTasksComponent } from './subTasks/actualizar-sub-tasks/actualizar-sub-tasks.component';
 import { TaskFormComponent } from './tasks/task-form/task-form.component';
 import { SubTaskFormComponent } from './subTasks/sub-task-form/sub-task-form.component';
 import { StatsComponent } from './stats/stats.component';
@@ -22,8 +21,8 @@ const routes: Routes = [
     {path: "create_tasks/", component: TaskFormComponent},
     {path: "detail_tasks/:id", component: TaskDetailsComponent},
     {path: "update_task/:id", component: ActualizarTaskComponent},
-    {path: "update_subTask/:id", component: ActualizarSubTasksComponent},
-    {path: "create_Subtasks/:id", component: SubTaskFormComponent},
+    {path: "update_subTask/:id/:action", component: SubTaskFormComponent},
+    {path: "create_Subtasks/:id/:action", component: SubTaskFormComponent},
     {path: "stats", component: StatsComponent},
   ]
 

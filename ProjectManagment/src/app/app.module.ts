@@ -18,7 +18,6 @@ import { TaskFormComponent } from './tasks/task-form/task-form.component';
 import { TaskListComponent } from './tasks/task-list/task-list.component';
 import { TaskDetailsComponent } from './tasks/task-details/task-details.component';
 import { ActualizarTaskComponent } from './tasks/actualizar-task/actualizar-task.component';
-import { ActualizarSubTasksComponent } from './subTasks/actualizar-sub-tasks/actualizar-sub-tasks.component';
 import { SubTaskFormComponent } from './subTasks/sub-task-form/sub-task-form.component';
 import { StatsComponent } from './stats/stats.component';
 import { TaskCountComponent } from './stats/task-count/task-count.component';
@@ -37,7 +36,6 @@ import { GraphicTasksComponent } from './stats/graphic-tasks/graphic-tasks.compo
     TaskListComponent,
     TaskDetailsComponent,
     ActualizarTaskComponent,
-    ActualizarSubTasksComponent,
     SubTaskFormComponent,
     StatsComponent,
     TaskCountComponent,

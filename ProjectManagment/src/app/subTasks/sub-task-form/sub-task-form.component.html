@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-    <form class="form form-task" [formGroup]="form" (submit)="crear()">
+    <form class="form form-task" [formGroup]="form" (submit)="action == 1 ? crear(): editTask(subTask.id)">
 
         <div class="form-controls">
             <label for="">Descripcion</label>
@@ -29,8 +29,24 @@
             </div>
         </div>
 
+        
+        <div class="form-controls" *ngIf="action == 2">
+            <label >Tarea</label>
+            <select formControlName="idTask">
+                <option *ngFor="let item of tasks" value="{{item.id}}">{{item.title}}</option>
+            </select>
+            <div *ngIf="form.get('idTask').errors && form.get('idTask').touched" class="error__container">
+                    <p *ngIf="form.get('idTask').hasError('required')" class="error__message">
+                        Es un campo requerido
+                    </p>
+            </div>
+        </div>
+
+        <input type="hidden" *ngIf="action == 1" formControlName="idTask">
+
+
         <div>
-            <button type="submit" class="btn-crear">Crear</button>
+            <button type="submit" class="btn-crear">{{action == 1 ? 'Crear': 'Actualizar'}}</button>
         </div>
     </form>
 </div>

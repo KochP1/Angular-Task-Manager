@@ -15,6 +15,10 @@ export class TaskService {
       return this.http.get<Task[]>(this.url);
     }
 
+    getTasksWithNoProject(): Observable<Task[]> {
+      return this.http.get<Task[]>(`${this.url}/no_project`);
+    }
+
     getCompletedTasks(): Observable<number> {
       return this.http.get<number>(`${this.url}/completed_tasks`);
     }

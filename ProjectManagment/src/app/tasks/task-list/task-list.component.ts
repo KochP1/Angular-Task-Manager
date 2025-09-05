@@ -23,7 +23,7 @@ export class TaskListComponent implements OnInit {
     this.isLoding = true;
     this.errorMessage = "";
 
-    this.taskSrvice.getTasks().subscribe({
+    this.taskSrvice.getTasksWithNoProject().subscribe({
       next: (tasks) => {
         this.tasks = tasks;
         this.isLoding = false;

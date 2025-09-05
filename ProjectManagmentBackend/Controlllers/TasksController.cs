@@ -29,6 +29,20 @@ namespace ProjectManagmentBackend.Controllers
             }
         }
 
+        [HttpGet("no_project")]
+        public async Task<ActionResult> GetWithNoProject()
+        {
+            try
+            {
+                var tasks = await tasksServices.GetTaskWithNoProject();
+                return Ok(tasks);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error: {ex}");
+            }
+        }
+
         [HttpGet("completed_tasks")]
         public async Task<ActionResult> GetCompletedTask()
         {

@@ -20,6 +20,7 @@ namespace ProjectManagmentBackend.Services
         Task<int> GetPendingTasksCount();
         Task<int> GetTasksCount();
         Task<Dictionary<string, decimal>> GetTasksCompletionPercentage();
+        Task<TaskDto[]> GetTaskWithNoProject();
 
     }
 
@@ -37,6 +38,13 @@ namespace ProjectManagmentBackend.Services
         public async Task<TaskDto[]> GetTasks()
         {
             var tasks = await context.Tasks.OrderBy(x => x.Title).ToListAsync();
+            var taskDto = mapper.Map<TaskDto[]>(tasks);
+            return taskDto;
+        }
+
+        public async Task<TaskDto[]> GetTaskWithNoProject()
+        {
+            var tasks = await context.Tasks.Where(x => x.IdProject == null).OrderBy(x => x.Title).ToListAsync();
             var taskDto = mapper.Map<TaskDto[]>(tasks);
             return taskDto;
         }

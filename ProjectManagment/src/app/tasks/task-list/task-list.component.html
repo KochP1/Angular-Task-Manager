@@ -1,0 +1,12 @@
+<div class="cards__container">
+    <div *ngFor="let item of tasks" class="card">
+        <h2>{{item.title}}</h2>
+        <h4>{{item.status}}</h4>
+
+        <div class="btns__container">
+            <button class="btn-settings btn-detalles" (click)="detail_task(item.id)">Detalles</button>
+            <button class="btn-settings btn-editar" (click)="editTask(item.id)">Editar</button>
+            <button class="btn-settings btn-eliminar" (click)="delete(item.id)">Eliminar</button>
+        </div>
+    </div>
+</div>

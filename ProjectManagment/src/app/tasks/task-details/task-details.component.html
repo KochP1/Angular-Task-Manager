@@ -1,0 +1,18 @@
+<div class="details__wrapper">
+    <h1>{{task.title}}</h1>
+    <p>{{task.description}}</p>
+    <p>Status: {{task.status}}</p>
+    <p>Vencimiento: {{task.dueDate}}</p>
+
+    <div class="cards__container projectTask__container ">
+        <div *ngFor="let item of task.subTasks" class="card subtask__card">
+            <h2>{{item.description}}</h2>
+            <p *ngIf="item.isCompleted == false;">Pendiente</p>
+            <p *ngIf="item.isCompleted == true;">Finalizada</p>
+            <div class="btns__container">
+            <button class="btn-settings btn-editar" (click)="update(item.id)" >Editar</button>
+            <button class="btn-settings btn-eliminar" (click)="delete(item.id)">Eliminar</button>
+        </div>
+        </div>
+    </div>
+</div>

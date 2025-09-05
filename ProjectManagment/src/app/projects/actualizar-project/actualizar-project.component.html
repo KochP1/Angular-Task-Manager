@@ -1,0 +1,18 @@
+<div class="form__wrapper">
+    <form class="form" [formGroup]="actForm" (submit)="editProject(project.id)">
+
+        <div class="form-controls">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="name">
+        </div>
+
+        <div class="form-controls">
+            <label for="">Descripcion</label>
+            <textarea formControlName="description"></textarea>
+        </div>
+
+        <div>
+            <button type="submit" class="btn-crear">Actualizar</button>
+        </div>
+    </form>
+</div>

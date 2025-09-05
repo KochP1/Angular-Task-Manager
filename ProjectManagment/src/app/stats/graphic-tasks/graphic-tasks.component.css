@@ -1,0 +1,27 @@
+.graphic__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphic__container {
+    min-width: 82%;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px var(--info-color);
+}
+
+.graphic__container:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.chart-content {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}

@@ -1,0 +1,7 @@
+<div class="graphic__wrapper">
+    <div class="graphic__container">
+        <div *ngIf="!isLoading && !errorMessage && stats" class="chart-content">
+            <canvas #chartCanvas></canvas>
+        </div>
+    </div>
+</div>

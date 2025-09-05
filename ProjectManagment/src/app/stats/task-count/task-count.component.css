@@ -1,0 +1,28 @@
+.counts__wrapper {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 350px;
+}
+
+.stats__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px var(--info-color);
+    color: var(--text-light);
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.stats__card:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}

@@ -1,0 +1,106 @@
+<div class="form-container">
+  <h2>Crear Nueva Tarea</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+    <div class="form-section">
+
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          placeholder="Ingrese el título de la tarea">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          rows="4"
+          placeholder="Describa la tarea"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="status">Estado</label>
+          <select
+            id="status"
+            formControlName="status"
+            [class.invalid]="taskForm.get('status')?.invalid && taskForm.get('status')?.touched">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En curso">En curso</option>
+            <option value="Finalizada">Finalizada</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Fecha Límite</label>
+          <input
+            type="date"
+            id="dueDate"
+            formControlName="dueDate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="idProject">ID Proyecto (Opcional)</label>
+        <select formControlName="idProject">
+          <option *ngFor="let item of projects" value="{{item.id}}">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3>Subtareas</h3>
+
+      <div formArrayName="subTasks" class="subtasks-container">
+        <div
+          *ngFor="let subTask of subTasks.controls; let i = index; trackBy: trackByIndex"
+          [formGroupName]="i"
+          class="subtask-item">
+
+          <div class="subtask-header">
+            <h4>Subtarea {{ i + 1 }}</h4>
+            <button
+              type="button"
+              (click)="removeSubTask(i)"
+              class="btn-remove">
+              ✕
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label [for]="'description-' + i">Descripción</label>
+            <input
+              type="text"
+              [id]="'description-' + i"
+              formControlName="description"
+              placeholder="Descripción de la subtarea">
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label>
+              <input type="checkbox" formControlName="isCompleted">
+              ¿Completada?
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" (click)="addSubTask()" class="btn-add">
+        + Agregar Subtarea
+      </button>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="isLoading"
+        class="btn-primary">
+        Crear Tarea
+      </button>
+    </div>
+  </form>
+</div>

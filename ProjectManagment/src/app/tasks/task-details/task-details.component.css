@@ -1,0 +1,27 @@
+.details__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5rem;
+    color: var(--info-color);
+    font-weight: 400;
+}
+
+.projectTask__container {
+    margin-top: 50px;
+}
+
+.task__description {
+    color: inherit;
+}

@@ -1,0 +1,11 @@
+<div class="cards__container">
+    <div *ngFor="let item of projects" class="card">
+        <h2>{{item.name}}</h2>
+
+        <div class="btns__container">
+            <button class="btn-settings btn-detalles" (click)="detail_project(item.id)">Detalles</button>
+            <button class="btn-settings btn-editar" (click)="editProject(item.id)">Editar</button>
+            <button class="btn-settings btn-eliminar" (click)="delete(item.id)">Eliminar</button>
+        </div>
+    </div>
+</div>

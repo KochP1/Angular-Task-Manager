@@ -1,0 +1,28 @@
+<div class="form__wrapper">
+    <form class="form form-task" [formGroup]="form" (submit)="editTask(subTask.id)">
+
+        <div class="form-controls">
+            <label for="">Descripcion</label>
+            <textarea formControlName="description"></textarea>
+        </div>
+
+        <div class="form-controls">
+            <label >Status</label>
+            <select formControlName="isCompleted">
+                <option [value]="false">Pendiente</option>
+                <option [value]="true">Finalizada</option>
+            </select>
+        </div>
+
+        <div class="form-controls">
+            <label >Tarea</label>
+            <select formControlName="idTask">
+                <option *ngFor="let item of tasks" value="{{item.id}}">{{item.title}}</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" class="btn-crear">Actualizar</button>
+        </div>
+    </form>
+</div>

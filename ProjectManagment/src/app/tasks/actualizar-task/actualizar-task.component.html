@@ -1,0 +1,41 @@
+<div class="form__wrapper">
+    <form class="form form-task" [formGroup]="form" (submit)="editTask(task.id)">
+
+        <div class="form-controls">
+            <label for="">Titulo</label>
+            <input type="text" formControlName="title">
+        </div>
+
+        <div class="form-controls">
+            <label for="">Descripcion</label>
+            <textarea formControlName="description"></textarea>
+        </div>
+
+        <div class="form-controls">
+            <label >Status</label>
+            <select formControlName="status">
+                <option value="">Selecciona un status</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="En curso">En curso</option>
+                <option value="Finalizada">Finalizada</option>
+            </select>
+        </div>
+
+        <div class="form-controls">
+            <label for="">Fecha de vencimiento</label>
+            <input type="date" formControlName="dueDate">
+        </div>
+
+        <div class="form-controls">
+            <label >Proyecto</label>
+            <select formControlName="idProject">
+                <option value="">Sin proyecto</option>
+                <option *ngFor="let item of projects" value="{{item.id}}">{{item.name}}</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit" class="btn-crear">Actualizar</button>
+        </div>
+    </form>
+</div>

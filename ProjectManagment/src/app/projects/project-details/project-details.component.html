@@ -3,6 +3,8 @@
 
     <p>{{project.description}}</p>
 
+    <button class="btn-crear" (click)="create()">Crear Tarea</button>
+
     <div class="cards__container projectTask__container">
         <div *ngFor="let item of project.tasks" class="card">
             <h2>{{item.title}}</h2>

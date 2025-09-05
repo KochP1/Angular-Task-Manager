@@ -76,13 +76,15 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" *ngIf="action == 1">
         <label for="idProject">ID Proyecto (Opcional)</label>
         <select formControlName="idProject">
           <option *ngFor="let item of projects" value="{{item.id}}">{{item.name}}</option>
         </select>
       </div>
     </div>
+
+    <input type="hidden" formControlName="idProject">
 
     <div class="form-section">
       <h3>Subtareas</h3>

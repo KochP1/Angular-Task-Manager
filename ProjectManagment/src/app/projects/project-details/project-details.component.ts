@@ -67,4 +67,9 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
+  create() {
+    this.router.navigate([`create_tasks_project/${this.id}/${2}`]);
+  }
+
+
 }

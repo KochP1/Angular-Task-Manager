@@ -15,8 +15,9 @@ export class TaskFormComponent implements OnInit {
   isLoading: boolean = false;
   errorMessage: string = '';
   taskForm: FormGroup;
-  taskId?: number;
   projects: Project[];
+  action: number;
+  id: number;
 
   constructor(
     private taskService: TaskService,
@@ -37,8 +38,15 @@ export class TaskFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.taskId = this.route.snapshot.params['id'];
+    this.action = this.route.snapshot.params["action"];
+    //this.taskId = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
     this.loadProjects();
+
+    if(this.action == 2) {
+
+      this.cargarIdFormulario();
+    }
   }
 
   get subTasks(): FormArray {
@@ -131,7 +139,12 @@ export class TaskFormComponent implements OnInit {
         .then(() => {
           this.isLoading = false;
           alert('Tarea creada exitosamente');
-          this.router.navigate(['/tasks']);
+
+          if(this.action == 2) {
+            this.router.navigate([`detail_projects/${this.id}`])
+          } else {
+            this.router.navigate(['/tasks']);
+          }
         })
         .catch((error) => {
           this.isLoading = false;
@@ -142,7 +155,11 @@ export class TaskFormComponent implements OnInit {
     } else {
       this.isLoading = false;
       alert('Tarea creada exitosamente');
-      this.router.navigate(['/tasks']);
+      if(this.action == 2) {
+        this.router.navigate([`detail_projects/${this.id}`])
+      } else {
+        this.router.navigate(['/tasks']);
+      }
     }
   }
   markFormGroupTouched(formGroup: FormGroup): void {
@@ -168,4 +185,11 @@ export class TaskFormComponent implements OnInit {
     return index;
   }
 
+  cargarIdFormulario() {
+    if (this.id) {
+      this.taskForm.patchValue({
+        idProject: this.id,
+      });
+    }
+  } 
 }

@@ -15,6 +15,7 @@ namespace ProjectManagmentBackend.Services
         Task<ProjectDto[]> GetProjects();
         Task<bool> UpdateProject(int id, CreateProjectDto updateProject);
         Task<ProjectWithTaskDto> GetProjectsWithTasks(int id);
+        Task<int> GetProjectCountById(int id);
     }
 
     public class ProjectsServices : IProjectsServices
@@ -33,6 +34,12 @@ namespace ProjectManagmentBackend.Services
             var projects = await context.Projects.OrderBy(x => x.Name).ToListAsync();
             var projectsDto = mapper.Map<ProjectDto[]>(projects);
             return projectsDto;
+        }
+
+        public async Task<int> GetProjectCountById(int id)
+        {
+            var project = await context.Tasks.CountAsync(x => x.Id == id);
+            return project;
         }
 
         public async Task<ProjectDto> GetProjectById(int id)

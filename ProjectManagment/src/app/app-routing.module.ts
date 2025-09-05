@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ActualizarProjectComponent } from './projects/actualizar-project/actualizar-project.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -16,11 +15,11 @@ import { StatsComponent } from './stats/stats.component';
 const routes: Routes = [
   {path: "", component: DashboardComponent, children: [
     {path: "projects", component: ProjectsComponent},
-    {path: "create_projects", component: ProjectFormComponent},
-    {path: "update_projects/:id", component: ActualizarProjectComponent},
+    {path: "create_projects/:action", component: ProjectFormComponent},
+    {path: "update_projects/:id/:action", component: ProjectFormComponent},
     {path: "detail_projects/:id", component: ProjectDetailsComponent},
     {path: "tasks", component: TasksComponent},
-    {path: "create_tasks", component: TaskFormComponent},
+    {path: "create_tasks/", component: TaskFormComponent},
     {path: "detail_tasks/:id", component: TaskDetailsComponent},
     {path: "update_task/:id", component: ActualizarTaskComponent},
     {path: "update_subTask/:id", component: ActualizarSubTasksComponent},

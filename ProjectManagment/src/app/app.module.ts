@@ -11,7 +11,6 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
 import { ProjectService } from './services/projects/project.service';
 import { TaskService } from './services/tasks/task.service';
 import { SubTaskService } from './services/subTasks/sub-task.service';
-import { ActualizarProjectComponent } from './projects/actualizar-project/actualizar-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -32,7 +31,6 @@ import { GraphicTasksComponent } from './stats/graphic-tasks/graphic-tasks.compo
     ProjectsComponent,
     ProjectListComponent,
     ProjectFormComponent,
-    ActualizarProjectComponent,
     ProjectDetailsComponent,
     TasksComponent,
     TaskFormComponent,

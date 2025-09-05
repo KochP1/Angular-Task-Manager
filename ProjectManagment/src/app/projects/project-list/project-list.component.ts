@@ -38,7 +38,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   editProject(id: number) {
-    this.router.navigate([`update_projects/${id}`]);
+    this.router.navigate([`update_projects/${id}/${2}`]);
   }
 
   detail_project(id: number) {

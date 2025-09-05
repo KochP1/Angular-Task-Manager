@@ -1,5 +1,5 @@
 <div class="form__wrapper">
-    <form class="form" [formGroup]="projectForm" (submit)="post()">
+    <form class="form" [formGroup]="projectForm" (submit)="action == 1 ? post(): editProject(id)">
 
         <div class="form-controls">
             <label for="">Nombre</label>
@@ -32,7 +32,7 @@
         </div>
 
         <div>
-            <button type="submit" class="btn-crear">Crear</button>
+            <button type="submit" class="btn-crear">{{action == 1 ? 'Crear': 'Actualizar'}}</button>
         </div>
     </form>
 </div>
